@@ -6,6 +6,8 @@ import com.product.productservicedemo.models.Product;
 import com.product.productservicedemo.repositories.ProductRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SelfProductService implements ProductService {
 
@@ -31,5 +33,10 @@ public class SelfProductService implements ProductService {
     @Override
     public Product getProduct(Long id) {
         return productRepo.findById(id).get();
+    }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepo.findAll();
     }
 }

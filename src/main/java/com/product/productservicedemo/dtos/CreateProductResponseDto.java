@@ -8,4 +8,5 @@ import lombok.Setter;
 public class CreateProductResponseDto {
     private String productName;
     private String productDescription;
+    private Double productPrice;
 }

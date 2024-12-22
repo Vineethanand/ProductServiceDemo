@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -30,6 +32,7 @@ public class ProductController {
         CreateProductResponseDto createProductResponseDtoResponse = new CreateProductResponseDto();
         createProductResponseDtoResponse.setProductName(product.getName());
         createProductResponseDtoResponse.setProductDescription(product.getDescription());
+        createProductResponseDtoResponse.setProductPrice(product.getPrice());
         return new ResponseEntity<>(createProductResponseDtoResponse, HttpStatus.OK);
     }
 
@@ -41,5 +44,12 @@ public class ProductController {
             return new ResponseEntity<>(product, HttpStatus.OK);
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping
+    public List<Product> getAllProducts()
+    {
+        List<Product> products = productService.getAllProducts();
+        return products;
     }
 }
