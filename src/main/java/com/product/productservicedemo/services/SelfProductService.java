@@ -31,7 +31,7 @@ public class SelfProductService implements ProductService {
     }
 
     @Override
-    public Product getProduct(Long id) {
+    public Product getProductById(Long id) {
         return productRepo.findById(id).get();
     }
 
