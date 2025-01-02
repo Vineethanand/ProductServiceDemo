@@ -18,7 +18,7 @@ public class ProductController {
 
     private ProductService productService;
 
-    public ProductController(FakeStoreProductService productService)
+    public ProductController(ProductService productService)
     {
         this.productService = productService;
     }
